@@ -1,9 +1,6 @@
 { config, pkgs, lib, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
- 
+
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "yes";
 

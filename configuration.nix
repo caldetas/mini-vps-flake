@@ -6,9 +6,18 @@
  
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "yes";
-  #users.extraUsers.root.openssh.authorizedKeys.keys =
-  #  [ "..." ];
- 
+
+#  users.users.root.initialPassword = "password";
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDm6jfav0cPBC1nhEkq2lV74xBuwHw70qRFG0uPYZA7O"
+  ];
+
+  # Autologin on console
+  services.getty.autologin.enable = true;
+  services.getty.autologin.user = "root";
+
+  # Basic environment
+  environment.systemPackages = with pkgs; [ nano ];
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=900s
   '';

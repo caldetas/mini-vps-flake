@@ -10,8 +10,7 @@
   ];
 
   # Autologin on console
-  services.getty.autologin.enable = true;
-  services.getty.autologin.user = "root";
+  services.getty.autologinUser = "root";
 
   # Basic environment
   environment.systemPackages = with pkgs; [ nano ];
